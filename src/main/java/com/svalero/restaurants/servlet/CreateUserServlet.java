@@ -2,7 +2,7 @@ package com.svalero.restaurants.servlet;
 
 import com.svalero.restaurants.dao.UserDao;
 import com.svalero.restaurants.database.Database;
-import com.svalero.restaurants.model.User;
+import com.svalero.restaurants.model.Users;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ public class CreateUserServlet extends HttpServlet {
             int phone = Integer.parseInt(request.getParameter("phone"));
             String email = request.getParameter("email");
 
-            User user = new User(idUser, name, surname, phone, email);
+            Users user = new Users();
 
             Database database = new Database();
             database.connect();

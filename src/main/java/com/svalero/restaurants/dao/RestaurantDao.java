@@ -20,12 +20,7 @@ public class RestaurantDao {
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                Restaurant restaurant = new Restaurant(
-                        resultSet.getString("id_restaurants"),
-                        resultSet.getString("name"),
-                        resultSet.getString("address"),
-                        resultSet.getString("type")
-                );
+                Restaurant restaurant = new Restaurant();
                 restaurants.add(restaurant);
             }
         }

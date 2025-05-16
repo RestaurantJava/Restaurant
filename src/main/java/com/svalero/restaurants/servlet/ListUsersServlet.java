@@ -2,7 +2,7 @@ package com.svalero.restaurants.servlet;
 
 import com.svalero.restaurants.dao.UserDao;
 import com.svalero.restaurants.database.Database;
-import com.svalero.restaurants.model.User;
+import com.svalero.restaurants.model.Users;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +21,7 @@ public class ListUsersServlet extends HttpServlet {
             database.connect();
 
             UserDao userDao = new UserDao(database.getConnection());
-            List<User> users = userDao.getAllUsers();
+            List<Users> users = userDao.getAllUsers();
 
             request.setAttribute("users", users);
             request.getRequestDispatcher("list_users.jsp").forward(request, response);

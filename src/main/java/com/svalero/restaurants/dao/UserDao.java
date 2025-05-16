@@ -1,6 +1,6 @@
 package com.svalero.restaurants.dao;
 
-import com.svalero.restaurants.model.User;
+import com.svalero.restaurants.model.Users;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,26 +13,20 @@ public class UserDao {
         this.connection = connection;
     }
 
-    public List<User> getAllUsers() throws SQLException {
-        List<User> users = new ArrayList<>();
+    public List<Users> getAllUsers() throws SQLException {
+        List<Users> users = new ArrayList<>();
         String sql = "SELECT * FROM Users";
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                User user = new User(
-                        resultSet.getString("id_user"),
-                        resultSet.getString("name"),
-                        resultSet.getString("surname"),
-                        resultSet.getInt("phone"),
-                        resultSet.getString("email")
-                );
+                Users user = new Users();
                 users.add(user);
             }
         }
         return users;
     }
 
-    public boolean addUser(User user) throws SQLException {
+    public boolean addUser(Users user) throws SQLException {
         String sql = "INSERT INTO Users (id_user, name, surname, phone, email) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getIdUser());
