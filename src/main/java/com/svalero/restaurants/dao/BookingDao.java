@@ -1,4 +1,56 @@
 package com.svalero.restaurants.dao;
 
+import com.svalero.restaurants.model.Booking;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class BookingDao {
+    private final Connection connection;
+
+    public BookingDao(Connection connection) {
+        this.connection = connection;
+    }
+
+    public List<Booking> getAllBookings() throws SQLException {
+        List<Booking> bookings = new ArrayList<>();
+        String sql = "SELECT * FROM Bookings";
+        try (PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                Booking booking = new Booking(
+                        resultSet.getString("id_booking"),
+                        resultSet.getDate("date"),
+                        resultSet.getTime("hour"),
+                        resultSet.getInt("n_people"),
+                        resultSet.getString("id_user"),
+                        resultSet.getString("id_restaurant")
+                );
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
+
+    public boolean addBooking(Booking booking) throws SQLException {
+        String sql = "INSERT INTO Bookings (id_booking, date, hour, n_people, id_user, id_restaurant) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, booking.getIdBooking());
+            statement.setDate(2, booking.getDate());
+            statement.setTime(3, booking.getHour());
+            statement.setInt(4, booking.getNPeople());
+            statement.setString(5, booking.getIdUser());
+            statement.setString(6, booking.getIdRestaurant());
+            return statement.executeUpdate() == 1;
+        }
+    }
+
+    public boolean deleteBooking(String idBooking) throws SQLException {
+        String sql = "DELETE FROM Bookings WHERE id_booking = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, idBooking);
+            return statement.executeUpdate() == 1;
+        }
+    }
 }
