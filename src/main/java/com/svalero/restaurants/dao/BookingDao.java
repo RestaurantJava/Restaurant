@@ -53,4 +53,29 @@ public class BookingDao {
             return statement.executeUpdate() == 1;
         }
     }
+
+    public List<Booking> searchBookings(String query) throws SQLException {
+        List<Booking> bookings = new ArrayList<>();
+        String sql = "SELECT * FROM Bookings WHERE id_booking LIKE ? OR id_user LIKE ? OR id_restaurant LIKE ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            String search = "%" + query + "%";
+            statement.setString(1, search);
+            statement.setString(2, search);
+            statement.setString(3, search);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Booking booking = new Booking(
+                        resultSet.getString("id_booking"),
+                        resultSet.getDate("date"),
+                        resultSet.getTime("hour"),
+                        resultSet.getInt("n_people"),
+                        resultSet.getString("id_user"),
+                        resultSet.getString("id_restaurant")
+                );
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
 }
