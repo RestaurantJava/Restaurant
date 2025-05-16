@@ -26,7 +26,7 @@ public class CreateBookingServlet extends HttpServlet {
             String idUser = request.getParameter("idUser");
             String idRestaurant = request.getParameter("idRestaurant");
 
-            Booking booking = new Booking(idBooking, date, hour, nPeople, idUser, idRestaurant);
+            Booking booking = new Booking();
 
             Database database = new Database();
             database.connect();

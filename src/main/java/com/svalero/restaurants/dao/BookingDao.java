@@ -19,14 +19,7 @@ public class BookingDao {
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                Booking booking = new Booking(
-                        resultSet.getString("id_booking"),
-                        resultSet.getDate("date"),
-                        resultSet.getTime("hour"),
-                        resultSet.getInt("n_people"),
-                        resultSet.getString("id_user"),
-                        resultSet.getString("id_restaurant")
-                );
+                Booking booking = new Booking();
                 bookings.add(booking);
             }
         }
@@ -39,7 +32,7 @@ public class BookingDao {
             statement.setString(1, booking.getIdBooking());
             statement.setDate(2, booking.getDate());
             statement.setTime(3, booking.getHour());
-            statement.setInt(4, booking.getNPeople());
+            statement.setInt(4, booking.getnPeople());
             statement.setString(5, booking.getIdUser());
             statement.setString(6, booking.getIdRestaurant());
             return statement.executeUpdate() == 1;

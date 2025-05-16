@@ -3,7 +3,7 @@ package com.svalero.restaurants.model;
 import lombok.Data;
 
 @Data
-public class User {
+public class Users {
     private String idUser;
     private String name;
     private String surname;
@@ -50,6 +50,3 @@ public class User {
         this.email = email;
     }
 }
-dasdasdsfds
-
-dsfdsfds
