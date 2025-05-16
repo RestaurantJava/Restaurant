@@ -18,7 +18,7 @@ import lombok.Data;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.description = description;
+        this.type = description;
     }
 
     // Getters y Setters
