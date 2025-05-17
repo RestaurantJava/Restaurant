@@ -22,9 +22,11 @@ public class RestaurantDao {
         List<Restaurant> restaurants = new ArrayList<>();
             while (resultSet.next()) {
                 Restaurant restaurant = new Restaurant();
-                        restaurant.setIdRestaurant(resultSet.getInt("id_restaurant"));
+                restaurant.setIdRestaurant(resultSet.getInt("id_restaurant"));
+                restaurant.setName(resultSet.getString("name"));
+                restaurant.setAddress(resultSet.getString("address"));
+                restaurant.setType(resultSet.getString("type"));
                 restaurants.add(restaurant);
-
             }
         return restaurants;
     }

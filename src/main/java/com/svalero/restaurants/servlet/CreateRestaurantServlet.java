@@ -26,7 +26,7 @@ public class CreateRestaurantServlet extends HttpServlet {
             database.connect();
             connection = database.getConnection();
 
-            Restaurant newRestaurant = new Restaurant(0, name, address, type); // 0 porque es AUTO_INCREMENT
+            Restaurant newRestaurant = new Restaurant(); // 0 porque es AUTO_INCREMENT
             RestaurantDao restaurantDao = new RestaurantDao(connection);
             restaurantDao.addRestaurant(newRestaurant);
 
