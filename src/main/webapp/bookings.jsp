@@ -50,19 +50,19 @@
         <label for="hour">Time:</label>
         <select id="hour" name="hour" required>
           <option value="" disabled selected>Select time</option>
-          <option value="12:00">12:00</option>
-          <option value="12:30">12:30</option>
-          <option value="13:00">13:00</option>
-          <option value="13:30">13:30</option>
-          <option value="14:00">14:00</option>
-          <option value="14:30">14:30</option>
-          <option value="15:00">15:00</option>
-          <option value="20:00">20:00</option>
-          <option value="20:30">20:30</option>
-          <option value="21:00">21:00</option>
-          <option value="21:30">21:30</option>
-          <option value="22:00">22:00</option>
-          <option value="22:30">22:30</option>
+          <option value="12:00:00">12:00</option>
+          <option value="12:30:00">12:30</option>
+          <option value="13:00:00">13:00</option>
+          <option value="13:30:00">13:30</option>
+          <option value="14:00:00">14:00</option>
+          <option value="14:30:00">14:30</option>
+          <option value="15:00:00">15:00</option>
+          <option value="20:00:00">20:00</option>
+          <option value="20:30:00">20:30</option>
+          <option value="21:00:00">21:00</option>
+          <option value="21:30:00">21:30</option>
+          <option value="22:00:00">22:00</option>
+          <option value="22:30:00">22:30</option>
         </select>
       </div>
 
@@ -87,12 +87,13 @@
         <label for="idUser">User:</label>
         <select id="idUser" name="idUser" required>
           <option value="" disabled selected>Select user</option>
-          <option value="U001">Juan García</option>
-          <option value="U002">María López</option>
-          <option value="U003">Carlos Martínez</option>
-          <option value="U004">Ana Rodríguez</option>
-          <option value="U005">David Sánchez</option>
-          <!-- En una aplicación real, estos valores vendrían de la base de datos -->
+          <option value="1">Andrea Fernández</option>
+          <option value="2">Luis Martínez</option>
+          <option value="3">María López</option>
+          <option value="4">Jorge Sanz</option>
+          <option value="5">Lucía Pérez</option>
+          <option value="6">Carlos García</option>
+
         </select>
       </div>
 
@@ -100,82 +101,25 @@
         <label for="idRestaurant">Restaurant:</label>
         <select id="idRestaurant" name="idRestaurant" required>
           <option value="" disabled selected>Select restaurant</option>
-          <option value="R001">La Madrileña (Madrid)</option>
-          <option value="R002">Mar Mediterráneo (Barcelona)</option>
-          <option value="R003">El Rincón Andaluz (Sevilla)</option>
-          <option value="R004">Paella Valenciana (Valencia)</option>
-          <option value="R005">Pintxos & Txakoli (Bilbao)</option>
-          <option value="R006">El Tubo (Zaragoza)</option>
-          <option value="R007">Sabor Malagueño (Málaga)</option>
-          <option value="R008">Camino Gourmet (Santiago)</option>
-          <option value="R009">Sabores de Mallorca (Palma)</option>
-          <option value="R010">La Ciudad Imperial (Toledo)</option>
-          <!-- En una aplicación real, estos valores vendrían de la base de datos -->
+          <option value="1">El Buen Sabor (Tradicional)</option>
+          <option value="2">PizzaTop (Italiana)</option>
+          <option value="3">SushiZen (Japonesa)</option>
+          <option value="4">La Parrilla (Barbacoa)</option>
+          <option value="5">VeggieLife (Vegana)</option>
+          <option value="6">Tapas & Más (Tapas)</option>
+
+          <!-- estos valores vendrían de la base de datos -->
         </select>
       </div>
 
-      <div class="form-actions">
-        <button type="submit" class="button">Make Reservation</button>
-        <button type="reset" class="button button-secondary">Clear Form</button>
+      <button type="submit" class="button" formaction="<%=request.getContextPath()%>/create_booking">Make Reservation</button>
+      <a href="<%=request.getContextPath()%>/list_bookings" class="button">View Bookings</a>
+
+
       </div>
     </form>
   </section>
 
-  <section class="bookings-list-section">
-    <h3>Current Bookings</h3>
-    <table class="bookings-table">
-      <thead>
-      <tr>
-        <th>Booking ID</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>People</th>
-        <th>Restaurant</th>
-        <th>User</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- En una aplicación real, estos datos vendrían de la base de datos -->
-      <tr>
-        <td>B1684321456</td>
-        <td>17/05/2025</td>
-        <td>20:30</td>
-        <td>4</td>
-        <td>La Madrileña</td>
-        <td>Juan García</td>
-        <td>
-          <a href="#" class="action-link">Edit</a>
-          <a href="#" class="action-link action-delete">Cancel</a>
-        </td>
-      </tr>
-      <tr>
-        <td>B1684322789</td>
-        <td>18/05/2025</td>
-        <td>14:00</td>
-        <td>2</td>
-        <td>El Tubo</td>
-        <td>María López</td>
-        <td>
-          <a href="#" class="action-link">Edit</a>
-          <a href="#" class="action-link action-delete">Cancel</a>
-        </td>
-      </tr>
-      <tr>
-        <td>B1684325431</td>
-        <td>19/05/2025</td>
-        <td>21:00</td>
-        <td>6</td>
-        <td>Pintxos & Txakoli</td>
-        <td>Carlos Martínez</td>
-        <td>
-          <a href="#" class="action-link">Edit</a>
-          <a href="#" class="action-link action-delete">Cancel</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
 </main>
 
 <footer>
