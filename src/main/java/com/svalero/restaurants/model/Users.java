@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Data
 public class Users {
-    private String idUser;
+    private int idUser;
     private String name;
     private String surname;
     private int phone;

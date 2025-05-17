@@ -29,10 +29,10 @@ public class BookingDao {
     public boolean addBooking(Booking booking) throws SQLException {
         String sql = "INSERT INTO Bookings (id_booking, date, hour, n_people, id_user, id_restaurant) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, booking.getIdBooking());
+            statement.setInt(1, booking.getIdBooking());
             statement.setDate(2, booking.getDate());
             statement.setTime(3, booking.getHour());
-            statement.setInt(4, booking.getnPeople());
+            statement.setInt(4, booking.getNPeople());
             statement.setString(5, booking.getIdUser());
             statement.setString(6, booking.getIdRestaurant());
             return statement.executeUpdate() == 1;
