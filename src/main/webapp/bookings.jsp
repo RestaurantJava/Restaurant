@@ -37,9 +37,7 @@
 
   <section class="booking-form-section">
     <h3>Make a Reservation</h3>
-    <form action="<%=request.getContextPath()%>/create_booking" method="post" class="booking-form">
-      <!-- El ID de reserva se generará automáticamente en el servlet -->
-      <input type="hidden" name="idBooking" value="B<%=System.currentTimeMillis() %>">
+    <form action="create_booking" method="post" class="booking-form">
 
       <div class="form-group">
         <label for="date">Date:</label>
@@ -112,11 +110,9 @@
         </select>
       </div>
 
-      <button type="submit" class="button" formaction="<%=request.getContextPath()%>/create_booking">Make Reservation</button>
+      <input type="submit" class="button" value="Make Reservation">
       <a href="<%=request.getContextPath()%>/list_bookings" class="button">View Bookings</a>
 
-
-      </div>
     </form>
   </section>
 

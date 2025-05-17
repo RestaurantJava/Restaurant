@@ -31,18 +31,17 @@ public class RestaurantDao {
         return restaurants;
     }
     public boolean addRestaurant(Restaurant restaurant) throws SQLException {
-        String sql = "INSERT INTO Restaurants (id_restaurants, name, address, type) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Restaurants (name, address, type) VALUES (?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, restaurant.getIdRestaurant());
-            statement.setString(2, restaurant.getName());
-            statement.setString(3, restaurant.getAddress());
-            statement.setString(4, restaurant.getType());
+            statement.setString(1, restaurant.getName());
+            statement.setString(2, restaurant.getAddress());
+            statement.setString(3, restaurant.getType());
             return statement.executeUpdate() == 1;
         }
     }
 
     public boolean deleteRestaurant(int idRestaurant) throws SQLException {
-        String sql = "DELETE FROM Restaurants WHERE id_restaurants = ?";
+        String sql = "DELETE FROM Restaurants WHERE id_restaurant = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, idRestaurant);
             return statement.executeUpdate() == 1;

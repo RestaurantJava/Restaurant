@@ -8,26 +8,29 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.SQLException;
-import java.util.UUID;
 
 @WebServlet("/create_booking")
 
 public class CreateBookingServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Database database = new Database();
+        Connection connection = null;
+
         try {
-            String idBooking = UUID.randomUUID().toString().substring(0,10);
             Date date = Date.valueOf(request.getParameter("date"));
+
             String rawHour = request.getParameter("hour");
-
             if (rawHour != null && rawHour.length() == 5) {
-                rawHour += ":00"; // añade los segundos si solo vienen horas y minutos
+                rawHour += ":00";
             }
-
-            Time hour = Time.valueOf(rawHour); // ahora es seguro
+            Time hour = Time.valueOf(rawHour);
 
             int nPeople = Integer.parseInt(request.getParameter("nPeople"));
             int idUser = Integer.parseInt(request.getParameter("idUser"));
@@ -40,19 +43,25 @@ public class CreateBookingServlet extends HttpServlet {
             booking.setIdUser(idUser);
             booking.setIdRestaurant(idRestaurant);
 
-            Database database = new Database();
             database.connect();
+            connection = database.getConnection();
 
-            BookingDao bookingDao = new BookingDao(database.getConnection());
+            BookingDao bookingDao = new BookingDao(connection);
             bookingDao.addBooking(booking);
 
-            database.disconnect();
+            response.sendRedirect("bookings.jsp"); // o list_bookings si usas un servlet de listado
 
-            response.sendRedirect("list_bookings");
-
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | IllegalArgumentException e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");
+        } finally {
+            if (connection != null) {
+                try {
+                    database.disconnect();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
