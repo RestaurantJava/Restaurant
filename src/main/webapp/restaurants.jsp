@@ -89,7 +89,7 @@
 
 <footer>
   <div class="container">
-    <p>NOMBRE DEL RESTAURANTE</p>
+    <p>Restaurant Management System</p>
   </div>
 </footer>
 </body>
