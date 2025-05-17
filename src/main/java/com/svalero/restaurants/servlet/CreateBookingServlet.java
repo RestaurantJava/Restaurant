@@ -19,12 +19,12 @@ public class CreateBookingServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String idBooking = UUID.randomUUID().toString().substring(0, 8); // ID generado automáticamente
+            String idBooking = UUID.randomUUID().toString().substring(0,10);
             Date date = Date.valueOf(request.getParameter("date"));
             Time hour = Time.valueOf(request.getParameter("hour"));
             int nPeople = Integer.parseInt(request.getParameter("nPeople"));
-            String idUser = request.getParameter("idUser");
-            String idRestaurant = request.getParameter("idRestaurant");
+            int idUser = Integer.parseInt(request.getParameter("idUser"));
+            int idRestaurant = Integer.parseInt(request.getParameter("idRestaurant"));
 
             Booking booking = new Booking();
 

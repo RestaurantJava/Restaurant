@@ -15,7 +15,7 @@ public class Booking {
     private Date date;
     private Time hour;
     private int nPeople;
-    private String idUser;
-    private String idRestaurant;
+    private int idUser;
+    private int idRestaurant;
 
 }

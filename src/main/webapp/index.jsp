@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="restaurants.jsp">Restaurants</a></li>
-                <li><a href="list_bookings.jsp">Bookings</a></li>
+                <li><a href="bookings.jsp">Bookings</a></li>
             </ul>
         </nav>
     </div>
