@@ -11,20 +11,21 @@ import java.sql.SQLException;
 
 @WebServlet("/delete_booking")
 public class DeleteBookingServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idBooking = request.getParameter("id");
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         try {
+            int idBooking = Integer.parseInt(request.getParameter("id"));
+
             Database database = new Database();
             database.connect();
 
-            /*BookingDao bookingDao = new BookingDao(database.getConnection());
-            bookingDao.deleteBooking(idBooking);*/
+            BookingDao bookingDao = new BookingDao(database.getConnection());
+            bookingDao.deleteBooking(idBooking);
 
             database.disconnect();
-
-            response.sendRedirect("list_bookings");
+            response.sendRedirect("bookings.jsp");
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
