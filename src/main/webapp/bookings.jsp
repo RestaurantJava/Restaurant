@@ -96,10 +96,8 @@
             <option value="4">Jorge Sanz</option>
             <option value="5">Lucía Pérez</option>
             <option value="6">Carlos García</option>
-
           </select>
         </div>
-
         <div class="form-group mb-3">
           <label for="idRestaurant">Restaurant:</label>
           <select id="idRestaurant" name="idRestaurant" required>
@@ -110,11 +108,8 @@
             <option value="4">La Parrilla (Barbacoa)</option>
             <option value="5">VeggieLife (Vegana)</option>
             <option value="6">Tapas & Más (Tapas)</option>
-
-            <!-- estos valores vendrían de la base de datos -->
           </select>
         </div>
-
         <input type="submit" class="btn btn-primary me-2" value="Make Reservation">
         <a href="<%=request.getContextPath()%>/list_bookings" class="btn btn-secondary">View Bookings</a>
 

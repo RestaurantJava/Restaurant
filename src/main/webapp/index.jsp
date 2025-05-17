@@ -54,7 +54,7 @@
 
 <footer class="bg-light text-center py-3 mt-5 rounded">
     <div class="container">
-        <p>Restaurant Management System</p>
+      <p>Restaurant Management System</p>
     </div>
 </footer>
 </body>
