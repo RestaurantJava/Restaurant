@@ -60,4 +60,5 @@ public class Booking {
     public void setIdRestaurant(String idRestaurant) {
         this.idRestaurant = idRestaurant;
     }
+
 }
