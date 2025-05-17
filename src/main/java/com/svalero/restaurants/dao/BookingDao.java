@@ -58,17 +58,11 @@ public class BookingDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Booking booking = new Booking(
-                        resultSet.getString("id_booking"),
-                        resultSet.getDate("date"),
-                        resultSet.getTime("hour"),
-                        resultSet.getInt("n_people"),
-                        resultSet.getString("id_user"),
-                        resultSet.getString("id_restaurant")
-                );
+                Booking booking = new Booking();
                 bookings.add(booking);
             }
         }
         return bookings;
     }
+
 }
