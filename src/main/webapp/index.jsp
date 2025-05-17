@@ -21,14 +21,14 @@
 <body>
 <header class="bg-primary text-white py-3 mb-4 rounded">
     <div class="container">
-      <h1 class="text-white">Restaurant Management System</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white active" href="index.jsp">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="restaurants.jsp">Restaurants</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="bookings.jsp">Bookings</a></li>
-        </ul>
-      </nav>
+        <h1 class="text-white">Restaurant Management System</h1>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white active" href="index.jsp">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="restaurants.jsp">Restaurants</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="bookings.jsp">Bookings</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
