@@ -33,3 +33,4 @@ public class ListRestaurantsServlet extends HttpServlet {
         }
     }
 }
+
