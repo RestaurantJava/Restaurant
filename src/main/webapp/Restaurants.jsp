@@ -9,6 +9,7 @@
 <%@ page import="com.svalero.restaurants.dao.RestaurantDao" %>
 <%@ page import="com.svalero.restaurants.model.Restaurant" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.svalero.restaurants.database.Database" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +46,6 @@
         <th>ID</th>
         <th>Name</th>
         <th>Address</th>
-        <th>Phone</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -58,7 +58,7 @@
 
           // Initialize RestaurantDao and get all restaurants
           RestaurantDao restaurantDao = new RestaurantDao(database.getConnection());
-          List<Restaurant> restaurants = restaurantDao.findAll();
+          List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
 
           // Close database connection
           database.disconnect();
@@ -67,13 +67,12 @@
           for (Restaurant restaurant : restaurants) {
       %>
       <tr>
-        <td><%= restaurant.getId() %></td>
+        <td><%= restaurant.getIdRestaurant() %></td>
         <td><%= restaurant.getName() %></td>
         <td><%= restaurant.getAddress() %></td>
-        <td><%= restaurant.getPhone() %></td>
         <td>
-          <a href="restaurant-detail.jsp?id=<%= restaurant.getId() %>" class="button small">Details</a>
-          <a href="delete-restaurant?id=<%= restaurant.getId() %>" class="button small danger" onclick="return confirm('Are you sure you want to delete this restaurant?')">Delete</a>
+          <a href="restaurant-detail.jsp?id=<%= restaurant.getIdRestaurant() %>" class="button small">Details</a>
+          <a href="delete-restaurant?id=<%= restaurant.getIdRestaurant() %>" class="button small danger" onclick="return confirm('Are you sure you want to delete this restaurant?')">Delete</a>
         </td>
       </tr>
       <%
