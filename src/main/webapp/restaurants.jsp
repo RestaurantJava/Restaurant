@@ -70,6 +70,7 @@
         <td><%= restaurant.getIdRestaurant() %></td>
         <td><%= restaurant.getName() %></td>
         <td><%= restaurant.getAddress() %></td>
+        <td><%= restaurant.getType() %></td>
         <td>
           <a href="restaurant-detail.jsp?id=<%= restaurant.getIdRestaurant() %>" class="button small">Details</a>
           <a href="delete-restaurant?id=<%= restaurant.getIdRestaurant() %>" class="button small danger" onclick="return confirm('Are you sure you want to delete this restaurant?')">Delete</a>

@@ -1,4 +1,4 @@
-package com.svalero.restaurants.servlet;
+/*package com.svalero.restaurants.servlet;
 
 import com.svalero.restaurants.dao.UserDao;
 import com.svalero.restaurants.database.Database;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idUser = request.getParameter("id");
+        int idUser = request.getInt("id");
 
         try {
             Database database = new Database();
@@ -32,4 +32,4 @@ public class DeleteUserServlet extends HttpServlet {
             response.sendRedirect("error.jsp");
         }
     }
-}
+}*/

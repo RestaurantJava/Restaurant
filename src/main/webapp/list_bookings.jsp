@@ -33,7 +33,7 @@
         <strong>ID:</strong> <%= booking.getIdBooking() %><br>
         <strong>Date:</strong> <%= booking.getDate() %><br>
         <strong>Time:</strong> <%= booking.getHour() %><br>
-        <strong>People:</strong> <%= booking.getnPeople() %><br>
+        <strong>People:</strong> <%= booking.getNPeople() %><br>
         <strong>User ID:</strong> <%= booking.getIdUser() %><br>
         <strong>Restaurant ID:</strong> <%= booking.getIdRestaurant() %>
     </p>

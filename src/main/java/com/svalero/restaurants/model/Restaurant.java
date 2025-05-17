@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Data
 public class Restaurant {
-    private String idRestaurant;
+    private int idRestaurant;
     private String name;
     private String address;
     private String type;

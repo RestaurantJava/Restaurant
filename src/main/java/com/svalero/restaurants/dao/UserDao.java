@@ -29,7 +29,7 @@ public class UserDao {
     public boolean addUser(Users user) throws SQLException {
         String sql = "INSERT INTO Users (id_user, name, surname, phone, email) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, user.getIdUser());
+            statement.setInt(1, user.getIdUser());
             statement.setString(2, user.getName());
             statement.setString(3, user.getSurname());
             statement.setInt(4, user.getPhone());
@@ -38,10 +38,10 @@ public class UserDao {
         }
     }
 
-    public boolean deleteUser(String idUser) throws SQLException {
+    public boolean deleteUser(int idUser) throws SQLException {
         String sql = "DELETE FROM Users WHERE id_user = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, idUser);
+            statement.setInt(1, idUser);
             return statement.executeUpdate() == 1;
         }
     }

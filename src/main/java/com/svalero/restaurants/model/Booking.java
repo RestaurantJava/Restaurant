@@ -11,7 +11,7 @@ import java.sql.Time;
 @Getter
 @Data
 public class Booking {
-    private String idBooking;
+    private int idBooking;
     private Date date;
     private Time hour;
     private int nPeople;
