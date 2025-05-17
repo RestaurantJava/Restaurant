@@ -11,8 +11,8 @@ public class Database {
     private Connection connection;
 
     private final String url = "jdbc:mariadb://localhost:3306/RESTAURANTS";
-    private final String user = "AFERNANDEZ";
-    private final String password = "26011998";
+    private final String user = "admin";
+    private final String password = "admin";
 
     public void connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");
