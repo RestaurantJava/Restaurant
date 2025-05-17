@@ -20,6 +20,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<header class="bg-primary text-white py-3 mb-4 rounded">
+  <div class="container">
+    <h1 class="text-white">Restaurant Management System</h1>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-white" href="index.jsp">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="restaurants.jsp">Restaurants</a></li>
+        <li class="nav-item"><a class="nav-link text-white active" href="list_bookings.jsp">Bookings</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <div class="container py-4">
 <h1 class="text-primary mb-4">Bookings</h1>
 
@@ -56,5 +68,10 @@
 %>
 
 </div>
+<footer class="bg-light text-center py-3 mt-5 rounded">
+  <div class="container">
+    <p>Restaurant Management System</p>
+  </div>
+</footer>
 </body>
 </html>

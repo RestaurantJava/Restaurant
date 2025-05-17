@@ -13,45 +13,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Management</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<header>
+<header class="bg-primary text-white py-3 mb-4 rounded">
     <div class="container">
-        <h1>Restaurant Management System</h1>
-        <nav>
-            <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="restaurants.jsp">Restaurants</a></li>
-                <li><a href="bookings.jsp">Bookings</a></li>
-            </ul>
-        </nav>
+      <h1 class="text-white">Restaurant Management System</h1>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-white active" href="index.jsp">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="restaurants.jsp">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="bookings.jsp">Bookings</a></li>
+        </ul>
+      </nav>
     </div>
 </header>
 
-<main class="container">
-    <section class="welcome">
+<main class="container py-4">
+    <section class="welcome bg-white p-4 rounded shadow-sm mb-4">
         <h2>Welcome to our Restaurant Management System</h2>
         <p>This system allows you to manage restaurants and bookings.</p>
     </section>
 
-    <section class="quick-links">
-        <div class="card">
+    <section class="quick-links row g-4">
+        <div class="card p-4 col-md-6 shadow-sm">
             <h3>Restaurants</h3>
             <p>View and manage all restaurants in our system.</p>
-            <a href="restaurants.jsp" class="button">View Restaurants</a>
+            <a href="restaurants.jsp" class="btn btn-primary mt-3">View Restaurants</a>
         </div>
-
-        <div class="card">
+        <div class="card p-4 col-md-6 shadow-sm">
             <h3>Bookings</h3>
             <p>Manage all bookings for our restaurants.</p>
-            <a href="bookings.jsp" class="button">View Bookings</a>
+            <a href="bookings.jsp" class="btn btn-secondary mt-3">View Bookings</a>
         </div>
     </section>
 </main>
 
-<footer>
+<footer class="bg-light text-center py-3 mt-5 rounded">
     <div class="container">
-        <p>Restaurant Management System</p>
+      <p>Restaurant Management System</p>
     </div>
 </footer>
 </body>

@@ -14,11 +14,16 @@
   <title>Bookings - Restaurant Management</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/bookings.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<div class="container py-4">
 <header>
   <div class="container">
-    <h1>Restaurant Management System</h1>
+    <h1 class="text-white">Restaurant Management System</h1>
     <nav>
       <ul>
         <li><a href="index.jsp">Home</a></li>
@@ -31,20 +36,20 @@
 
 <main class="container">
   <section class="page-heading">
-    <h2>Restaurant Bookings</h2>
+    <h2 class="mb-3 text-primary">Restaurant Bookings</h2>
     <p>Make a new reservation or view existing bookings</p>
   </section>
 
   <section class="booking-form-section">
     <h3>Make a Reservation</h3>
-    <form action="create_booking" method="post" class="booking-form">
+    <form action="create_booking" method="post" class="booking-form bg-white p-4 rounded shadow-sm">
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="hour">Time:</label>
         <select id="hour" name="hour" required>
           <option value="" disabled selected>Select time</option>
@@ -64,7 +69,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="nPeople">Number of People:</label>
         <select id="nPeople" name="nPeople" required>
           <option value="" disabled selected>Select number of people</option>
@@ -81,7 +86,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="idUser">User:</label>
         <select id="idUser" name="idUser" required>
           <option value="" disabled selected>Select user</option>
@@ -95,7 +100,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="idRestaurant">Restaurant:</label>
         <select id="idRestaurant" name="idRestaurant" required>
           <option value="" disabled selected>Select restaurant</option>
@@ -110,18 +115,19 @@
         </select>
       </div>
 
-      <input type="submit" class="button" value="Make Reservation">
-      <a href="<%=request.getContextPath()%>/list_bookings" class="button">View Bookings</a>
+      <input type="submit" class="btn btn-primary me-2" value="Make Reservation">
+      <a href="<%=request.getContextPath()%>/list_bookings" class="btn btn-secondary">View Bookings</a>
 
     </form>
   </section>
 
 </main>
 
-<footer>
+<footer class="bg-light text-center py-3 mt-5">
   <div class="container">
     <p>Restaurant Management System</p>
   </div>
 </footer>
+</div>
 </body>
 </html>
