@@ -26,11 +26,11 @@ public class CreateRestaurantServlet extends HttpServlet {
             database.connect();
             connection = database.getConnection();
 
-            Restaurant newRestaurant = new Restaurant(); // 0 porque es AUTO_INCREMENT
+            Restaurant newRestaurant = new Restaurant();
             RestaurantDao restaurantDao = new RestaurantDao(connection);
             restaurantDao.addRestaurant(newRestaurant);
 
-            response.sendRedirect("restaurants.jsp"); // o "list_restaurants" si lo tienes como servlet
+            response.sendRedirect("restaurants.jsp");
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
