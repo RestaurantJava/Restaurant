@@ -1,10 +1,13 @@
 package com.svalero.restaurants.database;
 
+import lombok.Getter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
+    @Getter
     private Connection connection;
 
     private final String url = "jdbc:mariadb://localhost:3306/RESTAURANTS";
@@ -20,10 +23,6 @@ public class Database {
         if (connection != null && !connection.isClosed()) {
             connection.close();
         }
-    }
-
-    public Connection getConnection() {
-        return connection;
     }
 }
 
