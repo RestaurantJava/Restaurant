@@ -19,8 +19,8 @@ public class DeleteBookingServlet extends HttpServlet {
             Database database = new Database();
             database.connect();
 
-            BookingDao bookingDao = new BookingDao(database.getConnection());
-            bookingDao.deleteBooking(idBooking);
+            /*BookingDao bookingDao = new BookingDao(database.getConnection());
+            bookingDao.deleteBooking(idBooking);*/
 
             database.disconnect();
 

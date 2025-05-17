@@ -26,7 +26,7 @@ public class BookingDao {
         return bookings;
     }
 
-    public boolean addBooking(Booking booking) throws SQLException {
+    /*public boolean addBooking(Booking booking) throws SQLException {
         String sql = "INSERT INTO Bookings (id_booking, date, hour, n_people, id_user, id_restaurant) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, booking.getIdBooking());
@@ -37,15 +37,15 @@ public class BookingDao {
             statement.setString(6, booking.getIdRestaurant());
             return statement.executeUpdate() == 1;
         }
-    }
+    }*/
 
-    public boolean deleteBooking(String idBooking) throws SQLException {
+    /*public boolean deleteBooking(String idBooking) throws SQLException {
         String sql = "DELETE FROM Bookings WHERE id_booking = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, idBooking);
             return statement.executeUpdate() == 1;
         }
-    }
+    }*/
 
     public List<Booking> searchBookings(String query) throws SQLException {
         List<Booking> bookings = new ArrayList<>();

@@ -31,8 +31,8 @@ public class CreateBookingServlet extends HttpServlet {
             Database database = new Database();
             database.connect();
 
-            BookingDao bookingDao = new BookingDao(database.getConnection());
-            bookingDao.addBooking(booking);
+            /*BookingDao bookingDao = new BookingDao(database.getConnection());
+            bookingDao.addBooking(booking);*/
 
             database.disconnect();
 
